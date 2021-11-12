@@ -34,6 +34,10 @@ const app = new Vue( {
         ],
         activeState: 0,
     },
+    created: function () {
+        console.log('created');
+        setInterval(this.activePlus, 3000);
+    },
     methods: {
         prevPic() {
             this.activeState--;
@@ -55,6 +59,12 @@ const app = new Vue( {
 
         setActive(index) {
             this.activeState = index;
-        }
+        },
+
+        //////////////////
+
+        activePlus() {
+            this.activeState++;
+        },
     },
 } );
