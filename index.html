@@ -28,12 +28,13 @@
             <!-- Thumbnails -->
             <div class="thumbs">
                 <!-- genera con vue  -->
-                <div class="thumb active">
-                    <img src="./img/01.jpg" alt="Lorem">
+
+                <div v-for="(place, index) in slides" class="thumb" :class="{active: index === activeState}">
+                    <img :src="slides[index].image" alt="slides[activeState].title" @click="setActive(index)">
                 </div>
     
-                <div class="prev">&uarr;</div>
-                <div class="next">&darr;</div>
+                <div @click="prevPic" class="prev">&uarr;</div>
+                <div @click="nextPic" class="next">&darr;</div>
             </div>
         </section>
 

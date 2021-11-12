@@ -7,7 +7,7 @@ const app = new Vue( {
     data: {
         slides: [
             {
-                image: 'img/01.jpg',
+                image: './img/01.jpg',
                 title: 'Svezia',
                 text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
             },
@@ -28,10 +28,33 @@ const app = new Vue( {
             },
             {
                 image: 'img/05.jpg',
-                title: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
+                title: 'Paradise',
+                text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
             },
         ],
         activeState: 0,
     },
-    methods: {},
+    methods: {
+        prevPic() {
+            this.activeState--;
+            if (this.activeState < 0) {
+                this.activeState = this.slides.length - 1;
+            }
+        },
+
+        //////////////////
+
+        nextPic() {
+            this.activeState++;
+            if (this.activeState > 4) {
+                this.activeState = 0;
+            }
+        },
+
+        ////////////////////
+
+        setActive(index) {
+            this.activeState = index;
+        }
+    },
 } );
