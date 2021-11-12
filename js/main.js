@@ -36,7 +36,7 @@ const app = new Vue( {
     },
     created: function () {
         console.log('created');
-        setInterval(this.activePlus, 3000);
+        let autoPlay = setInterval(this.activePlus, 3000);
     },
     methods: {
         prevPic() {
@@ -65,6 +65,11 @@ const app = new Vue( {
 
         activePlus() {
             this.activeState++;
+            if (this.activeState > 4) {
+                this.activeState = 0;
+            }
         },
+
+        ////////////////////
     },
 } );
