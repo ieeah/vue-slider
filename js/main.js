@@ -33,10 +33,10 @@ const app = new Vue( {
             },
         ],
         activeState: 0,
+        autoPlay: undefined,
     },
     created: function () {
-        console.log('created');
-        let autoPlay = setInterval(this.activePlus, 3000);
+        autoPlay = setInterval(this.nextPic, 3000);
     },
     methods: {
         prevPic() {
@@ -50,26 +50,17 @@ const app = new Vue( {
 
         nextPic() {
             this.activeState++;
-            if (this.activeState > 4) {
+            if (this.activeState > this.slides.length - 1) {
                 this.activeState = 0;
             }
         },
 
-        ////////////////////
+        //////////////////
 
         setActive(index) {
             this.activeState = index;
         },
 
-        //////////////////
-
-        activePlus() {
-            this.activeState++;
-            if (this.activeState > 4) {
-                this.activeState = 0;
-            }
-        },
-
-        ////////////////////
+        /////////////////
     },
 } );
